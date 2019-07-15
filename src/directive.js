@@ -6,7 +6,7 @@ function getRealValue(context, value) {
   return namespace ? `${namespace}--${value}` : value;
 }
 
-function handleHook(element, { arg, value, oldValue, expression }, { context }) {
+function handleHook(element, { arg, value, oldValue }, { context }) {
   if (process.env.NODE_ENV === 'production') return;
 
   oldValue = getRealValue(context, oldValue);
@@ -22,7 +22,7 @@ function handleHook(element, { arg, value, oldValue, expression }, { context }) 
       element.id = value;
       break;
     case 'test':
-      element.dataset.test = expression;
+      element.dataset.test = value;
       break;
     case 'attr':
       element.removeAttribute(oldValue);
