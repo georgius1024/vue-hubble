@@ -34,6 +34,5 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
   }
 }
