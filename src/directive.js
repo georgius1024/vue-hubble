@@ -7,7 +7,7 @@ function getRealValue(context, value) {
 }
 
 function handleHook(element, { arg, value, oldValue }, { context }) {
-  if (process.env.NODE_ENV !== 'test') return;
+  if (process.env.NODE_ENV === 'production') return;
 
   oldValue = getRealValue(context, oldValue);
   value = getRealValue(context, value);
