@@ -6,12 +6,11 @@ function getRealValue(context, value) {
   return namespace ? `${namespace}--${value}` : value;
 }
 
-function handleHook(element, { arg, value, oldValue }, { context }) {
+function handleHook(element, { arg, value, oldValue, expression }, { context }) {
   if (process.env.NODE_ENV === 'production') return;
 
   oldValue = getRealValue(context, oldValue);
   value = getRealValue(context, value);
-
   arg = arg || context.$hubble.defaultSelectorType;
 
   switch (arg) {
@@ -19,11 +18,12 @@ function handleHook(element, { arg, value, oldValue }, { context }) {
       element.classList.remove(oldValue);
       element.classList.add(value);
       break;
-
     case 'id':
       element.id = value;
       break;
-
+    case 'test':
+      element.dataset.test = expression;
+      break;
     case 'attr':
       element.removeAttribute(oldValue);
       element.setAttributeNode(element.ownerDocument.createAttribute(value));
