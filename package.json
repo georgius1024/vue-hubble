@@ -2,7 +2,7 @@
   "name": "vue-hubble",
   "version": "0.3.0",
   "description": "A better way to select elements for UI testing in Vue",
-  "main": "dist/bundle.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "node_modules/.bin/rollup -c",
     "lint": "eslint --ext .js,.vue .",
